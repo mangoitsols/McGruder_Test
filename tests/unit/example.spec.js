@@ -14,7 +14,7 @@ test('submit form testing', async () => {
   dobErr:false
 })
 
-  expect(wrapper.vm.customer.birthDay).toBe('firstname')
+  expect(wrapper.vm.customer.firstName).toBe('firstname')
   expect(wrapper.vm.customer.lastName).toBe('lastname');
   expect(wrapper.vm.customer.birthDay ).toBe('2022-09-14');
   expect(wrapper.vm.dobErr ).toBe(false);
