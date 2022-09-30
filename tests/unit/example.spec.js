@@ -19,22 +19,31 @@ import FormComp from '@/views/Form.vue';
 // })
 
 
-test('Form test', async () => {
+
+describe('FormComp', () => {
   const wrapper = shallowMount(FormComp,{
     data(){
       return{
-        customer: {
+        customers: {
           firstName: "",
           lastName: "",
-          middleName: "",
           birthDay: "",
         }
       }
     }
   })
+console.log("---------------",wrapper.vm.customer)
 
-  expect(wrapper.vm.customer.firstName).toBe('');
-  expect(wrapper.vm.customer.lastName).toBe('');
-  expect(wrapper.vm.customer.birthDay).toBe('');
-  expect(wrapper.vm.dobErr).toBe(false);
+it('test for firstname', () => {
+  expect(wrapper.vm.customer.firstName).toBe(wrapper.vm.customers.firstName);
+})
+
+it('test for lastName', () => {
+  expect(wrapper.vm.customer.lastName).toBe(wrapper.vm.customers.lastName);
+})
+
+
+it('test for date of birth', () => {
+  expect(wrapper.vm.customer.birthDay).toBe(wrapper.vm.customers.birthDay);
+})
 })
