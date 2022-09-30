@@ -32,7 +32,7 @@ describe('FormComp', () => {
       }
     }
   })
-console.log("---------------",wrapper.vm.customer)
+// console.log("---------------",wrapper.vm.customer)
 
 it('test for firstname', () => {
   expect(wrapper.vm.customer.firstName).toBe(wrapper.vm.customers.firstName);
