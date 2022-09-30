@@ -3,21 +3,38 @@ import { mount } from "@vue/test-utils";
 import FormComp from '@/views/Form.vue';
 
 
-test('submit form testing', async () => {
-  const wrapper = mount(FormComp)
 
-  await wrapper.setData({customer:{
-    firstName:'firstname',
-    lastName:'lastname',
-    birthDay:'2022-09-14'
-  },
-  dobErr:false
+
+// describe("form.vue",()=>{
+//   let wrapper;
+//   beforeEach(()=>{
+//     wrapper = mount(FormComp,{
+//       methods: { customerRegister:()=>{}},
+//     })
+//   })
+
+//   it("render",()=>{
+//     expect(wrapper.exists()).toBe(true)
+//   })
+// })
+
+
+test('Form test', async () => {
+  const wrapper = shallowMount(FormComp,{
+    data(){
+      return{
+        customer: {
+          firstName: "",
+          lastName: "",
+          middleName: "",
+          birthDay: "",
+        }
+      }
+    }
+  })
+
+  expect(wrapper.vm.customer.firstName).toBe('');
+  expect(wrapper.vm.customer.lastName).toBe('');
+  expect(wrapper.vm.customer.birthDay).toBe('');
+  expect(wrapper.vm.dobErr).toBe(false);
 })
-
-  expect(wrapper.vm.customer.firstName).toBe('firstname')
-  expect(wrapper.vm.customer.lastName).toBe('lastname');
-  expect(wrapper.vm.customer.birthDay ).toBe('2022-09-14');
-  expect(wrapper.vm.dobErr ).toBe(false);
-})
-
-
