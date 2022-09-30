@@ -2,9 +2,6 @@ import { shallowMount } from '@vue/test-utils';
 import { mount } from "@vue/test-utils";
 import FormComp from '@/views/Form.vue';
 
-
-
-
 // describe("form.vue",()=>{
 //   let wrapper;
 //   beforeEach(()=>{
@@ -18,8 +15,6 @@ import FormComp from '@/views/Form.vue';
 //   })
 // })
 
-
-
 describe('FormComp', () => {
   const wrapper = shallowMount(FormComp, {
     data() {
@@ -32,11 +27,12 @@ describe('FormComp', () => {
         fname_Err: false,
         lname_Err: false,
         dob_Err: false,
+        HasSeenCongrats:false
       }
     }
   })
 
-  console.log("---------------", wrapper.vm)
+  // console.log("---------------", wrapper.vm.hasSeenCongrats)
 
   it('test for firstname', () => {
     expect(wrapper.vm.customer.firstName).toBe(wrapper.vm.customers.firstName);
@@ -55,9 +51,15 @@ describe('FormComp', () => {
     expect(wrapper.vm.fnameErr).toBe(wrapper.vm.fname_Err);
   })
   it('renders an error when lastName is whitespace', () => {
-    expect(wrapper.vm.fnameErr).toBe(wrapper.vm.lname_Err);
+    expect(wrapper.vm.lnameErr).toBe(wrapper.vm.lname_Err);
   })
   it('renders an error when bith date is whitespace', () => {
-    expect(wrapper.vm.fnameErr).toBe(wrapper.vm.dob_Err);
+    expect(wrapper.vm.dobErr).toBe(wrapper.vm.dob_Err);
+  })
+
+
+
+  it('renders an error when data not show', () => {
+    expect(wrapper.vm.hasSeenCongrats).toBe(wrapper.vm.HasSeenCongrats);
   })
 })
