@@ -6,32 +6,15 @@
           <form class="form" method="post" action="#" @submit.prevent="next">
             <div class="form-group">
               <label>First Name : </label>
-              <input
-                type="text"
-                v-model="customer.firstName"
-                autocomplete="customer.firstName"
-                placeholder="First name"
-                @keyup="fnameValueFn()"
-              />
+              <input type="text" v-model="customer.firstName" autocomplete="customer.firstName" placeholder="First name" @keyup="fnameValueFn()" />
               <div v-if="fnameErr" class="errCls">please fill first name</div>
             </div>
             <div class="form-group">
               <label>Last Name : </label>
-              <input
-                type="text"
-                v-model="customer.lastName"
-                autocomplete="customer.lastName"
-                placeholder="Last name"
-                @keyup="lnameValueFn()"
-              />
+              <input type="text" v-model="customer.lastName" autocomplete="customer.lastName" placeholder="Last name" @keyup="lnameValueFn()"/>
               <div v-if="lnameErr" class="errCls">please fill last name</div>
             </div>
-            <div
-              class="cta"
-              data-style="see-through"
-              data-alignment="right"
-              data-text-color="custom"
-            >
+            <div class="cta" data-style="see-through" data-alignment="right" data-text-color="custom">
               <p class="cta-color">
                 <span class="link_wrap">
                   <input type="submit" value="Next" class="link_text" />
@@ -42,28 +25,17 @@
           </form>
         </section>
       </transition>
-      <!-- ------------------------------------------- -->
+      <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
       <transition name="slide-fade">
         <section v-show="step === 2">
           <form class="form" method="post" action="#" @submit.prevent="next">
-            <input
-              type="text"
-              v-model="customer.middleName"
-              autocomplete="customer.middleName"
-              placeholder="Enter Middle name"
-            />
-
+            <input type="text" v-model="customer.middleName" autocomplete="customer.middleName" placeholder="Enter Middle name"/>
             <div class="form-group cta-step">
               <div class="cta">
                 <p class="cta-color">
                   <span class="text"></span>
                   <span class="link_wrap">
-                    <input
-                      type="submit"
-                      @click.prevent="prev()"
-                      value="Prev"
-                      class="link_text"
-                    />
+                    <input type="submit" @click.prevent="prev()" value="Prev" class="link_text"/>
                     <input type="submit" value="Next" class="link_text" />
                     <span class="arrow-next"></span>
                   </span>
@@ -77,21 +49,11 @@
         <section v-show="step === 3">
           <form class="form" action="#" @submit.prevent="customerRegister">
             <div class="form-group">
-              <input
-                type="date"
-                v-model="customer.birthDay"
-                placeholder="Birthday ('day'/'month'/'year')"
-                @change="dateValueFn()"
-              />
+              <input type="date" v-model="customer.birthDay" placeholder="Birthday ('day'/'month'/'year')"  @change="dateValueFn()"/>
             </div>
             <div v-if="dobErr" class="errCls">Please insert date of birth</div>
             <div class="register-btn">
-              <input
-                type="submit"
-                @click.prevent="prev()"
-                value="Prev"
-                class="link_text"
-              />
+              <input type="submit" @click.prevent="prev()" value="Prev" class="link_text"/>
               <input type="submit" value="Submit" />
             </div>
           </form>
